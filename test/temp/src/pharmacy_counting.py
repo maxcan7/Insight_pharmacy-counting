@@ -32,6 +32,7 @@ def pharmwrite(inputname, outputname):
     num_prescriber = [None] * uniq_drugs.__len__()
     total_cost = [0] * uniq_drugs.__len__()
     idx = 0  # Used for indexing in the loop
+    uniq_drugs = list(uniq_drugs)
     for i in uniq_drugs:
         # Get count of prescribers for drug i
         num_prescriber[idx] = drugs.count(i)
@@ -43,20 +44,16 @@ def pharmwrite(inputname, outputname):
         idx = idx + 1
 
     # Clean and format output
-    output_data0 = str('drug_name, num_prescriber, total_cost')
-    output_data1 = str(uniq_drugs)
-    output_data2 = str(num_prescriber)
-    output_data3 = str(total_cost)
+    output_data = [None]*uniq_drugs.__len__()
+    output_data[0] = str('drug_name, num_prescriber, total_cost')
+    for i in range(0, uniq_drugs.__len__()):
+        output_data[i] = str(list(uniq_drugs)[i]) + ',' + str(num_prescriber[i]) + ',' + str(total_cost[i])
 
     # Remove listforms (stuff that got left behind from converting from list to string)
     listforms = ["{", "}", "'", "[", "]"]  # Formatting from list to string that needs to be removed
     for i in listforms:
-        output_data0 = output_data0.replace(i, "")
-        output_data1 = output_data1.replace(i, "")
-        output_data2 = output_data2.replace(i, "")
-        output_data3 = output_data3.replace(i, "")
-
-    output_data = [output_data0, output_data1, output_data2, output_data3]
+        for j in range(0, output_data.__len__()):
+            output_data[j] = output_data[j].replace(i, "")
 
     # Open output for writing
     outputfile = open(outputname, 'w+')

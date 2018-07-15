@@ -1,3 +1,5 @@
 #!/bin/bash
 #
-python "run pharmacy_counting.py" inputname outputname
+inFile='/input/itcont.txt'
+outFile='/output/top_drug_cost.txt'
+python ./src/pharmacy_counting.py inFile outFile
