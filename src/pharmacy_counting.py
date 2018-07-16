@@ -1,4 +1,8 @@
+# Set up user environment
+
 # Reads the itcont-formatted input and reorganizes it top_drug_cost-formatted output.
+
+
 def pharmwrite(inputname, outputname):
 
     # Open input as a list
@@ -59,6 +63,7 @@ def pharmwrite(inputname, outputname):
     outputfile = open(outputname, 'w+')
 
     # Write output
+    outputfile.write(str('drug_name, num_prescriber, total_cost\n'))
     for line in output_data:
         outputfile.write("%s\n" % line)
 
