@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 declare -r color_start="\033["
 declare -r color_red="${color_start}0;31m"
@@ -67,7 +67,7 @@ function compare_outputs {
     NUM_OUTPUT_FILES_PASSED=$(($NUM_OUTPUT_FILES_PASSED+1))
   else
     echo -e "[${color_red}FAIL${color_norm}]: ${test_folder}"
-    diff ${PROJECT_ANSWER_PATH1} ${TEST_ANSWER_PATH1}
+    diff -u ${PROJECT_ANSWER_PATH1} ${TEST_ANSWER_PATH1}
   fi
 
   if [ "${NUM_OUTPUT_FILES_PASSED}" -eq "1" ]; then
@@ -86,9 +86,9 @@ function run_all_tests {
 
     setup_testing_input_output
 
-    cd ${GRADER_ROOT}/temp
-    bash -x pharmacy_counting.sh 2>&1
-    cd ../
+    pushd ${GRADER_ROOT}/temp
+    bash -x ./pharmacy_counting.sh 2>&1
+    popd
 
     compare_outputs
   done
