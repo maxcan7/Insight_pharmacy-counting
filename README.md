@@ -1,12 +1,28 @@
 # Insight_pharmacy-counting
 My Insight Data Engineering Fellowship pharmacy-counting code challenge repo
 
-The script was written in python, and takes as inputs a filename for the input, and a filename for the output. The input file is assumed to be a .txt file with drug_name and drug_cost fields.
+Instructions:
+1. Open git bash and cd to the git repo
+2. Enter the following code in bash(no quotes): "chmod +x pharmacy_counting.sh".
+   This allows the shell script to be executed.
+3. Type (no quotes): "./pharmacy_counting.sh" to run the shell script
+4. The shell script calls to a python module pharmwrapper.py in the src folder, which
+   runs the function pharmwrite in the module pharmacy_counting.py with the input 
+   itcont.txt in the input folder, and outputs a file top_drug_cost.txt in the output
+   folder. So long as the input is a .txt file in the same format as itcont.txt with the fields 
+   drug_name and drug_cost, it will be flexible to different inputs. The output can be named anything.
+   Because the input to pharmwrite includes the path, the paths can also be adjusted by adjusting the 
+   fields in the pharmwrapper module.
+5. To test the shell, follow the steps outlined below in Test Instructions.
 
-The script was written without the use of tools such as pandas or numpy.
+Note that the python modules were written without the use of tools such as 
+pandas or numpy.
 
-The shell should be run in git bash from the git repo directiory, using 
-"chmod +x pharmacy_counting.sh" to make the shell executable and running 
-"pharmacy_counting.sh"
+Test Instructions:
+1. Open git bash and cd to the git repo/test_suite
+2. Enter the following code in bash(no quotes): "chmod +x run_tests.sh".
+   This allows the shell script to be executed.
+3. Type (no quotes): "./run_tests.sh" to run the shell script
+4. Should output the results.txt in the test_suite folder and the test files into 
+   the folder ./tests/test_1/
 
-It assumes you are using itcont.txt located in the input folder as the input. The input can be changed to anything, it would just require changing the input in the shell script pharmacy_counting.sh to the path for the new input. As long as the input file has the necessary fields, it does not need to be itcont.txt. The output file can be renamed to anything.
