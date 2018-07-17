@@ -29,8 +29,8 @@ def pharmwrite(inputname, outputname):
     drugs = drugs[1:drugs.__len__()]
     cost = cost[1:cost.__len__()]
 
-    # Create set of all unique drugs (not the drug for each prescriber)
-    uniq_drugs = set(drugs)
+    # Create dict of all unique drugs (not the drug for each prescriber)
+    uniq_drugs = {x: True for x in drugs}
 
     # Get num_prescriber and total_cost
     num_prescriber = [None] * uniq_drugs.__len__()

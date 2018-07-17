@@ -1,5 +1,8 @@
 # Insight_pharmacy-counting
 My Insight Data Engineering Fellowship pharmacy-counting code challenge repo
+The data are processed through a shell script, which calls to a python module
+(written in python 3.7), which is itself a wrapper for another python module 
+which has a function called pharmwrite which does most of the heavy lifting.
 
 Instructions:
 1. Open git bash and cd to the git repo
